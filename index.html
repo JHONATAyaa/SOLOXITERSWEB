@@ -275,7 +275,7 @@ header{background:rgba(10,5,0,0.97);border-bottom:1px solid var(--border);positi
     <nav class="drawer-nav">
       <div class="drawer-section">📦 Produtos</div>
       <div class="nav-item" onclick="showPage('apkmod')"><span class="nav-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></span> APKMOD <span class="nav-badge">HOT</span></div>
-      <div class="nav-item" onclick="showPage('apkroot')"><span class="nav-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 19.82L5.71 21l1-1.9C7 18.5 7.5 18 8 18h12c1.1 0 2-.9 2-2V8l-5 1z"/></svg></span> APKROOT</div>
+      <div class="nav-item" style="opacity:0.3;pointer-events:none"><span class="nav-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 19.82L5.71 21l1-1.9C7 18.5 7.5 18 8 18h12c1.1 0 2-.9 2-2V8l-5 1z"/></svg></span> APKROOT <span class="nav-badge" style="background:#555">EM BREVE</span></div>
       <div class="drawer-section">ℹ️ Informações</div>
       <div class="nav-item" onclick="showPage('info')"><span class="nav-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></span> MAIS INFORMAÇÕES</div>
       <div class="nav-item" onclick="showPage('social')"><span class="nav-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg></span> REDES SOCIAIS</div>
@@ -321,11 +321,11 @@ header{background:rgba(10,5,0,0.97);border-bottom:1px solid var(--border);positi
         </div>
       </div>
 
-      <div class="product-card" style="cursor:pointer" onclick="showPage('apkroot')">
+      <div class="product-card" style="cursor:not-allowed;opacity:0.4;pointer-events:none">
         <div class="product-header">
           <div>
             <div class="product-badge" style="background:linear-gradient(135deg,#7C3AED,#5B21B6)">🔥 PATO INJECT</div>
-            <div class="product-name" style="color:#A78BFA">SOLO APKROOT</div>
+            <div class="product-name" style="color:#A78BFA">SOLO APKROOT <span style="background:#444;color:#aaa;font-size:0.6rem;padding:2px 8px;border-radius:20px;vertical-align:middle;letter-spacing:1px">EM BREVE</span></div>
             <div style="font-size:0.85rem;color:var(--text2);margin-top:6px">Com VPhone, Root, Virtual, Cloud. Android 6–16.</div>
           </div>
           <div class="product-icon">🛡️</div>
@@ -623,7 +623,7 @@ const SEC = {
 
 setInterval(() => { if (CURRENT_USER) SEC.refreshSession(); }, 5 * 60 * 1000);
 
-const DEFAULT_LINKS_MOD  = {1:'https://go.tribopay.com.br/yklp5',3:'https://go.tribopay.com.br/uumgyfiarg',7:'https://go.tribopay.com.br/cqclz',15:'https://go.tribopay.com.br/dqdqq3dsif',30:'https://go.tribopay.com.br/mcrbt'};
+const DEFAULT_LINKS_MOD  = {1:'https://go.tribopay.com.br/yklp5?affh=jkcgmpnxll',3:'https://go.tribopay.com.br/zo7dl?affh=xjfihak9yg',7:'https://go.tribopay.com.br/u55svgvlpt?affh=egsbuqjsog',15:'https://go.tribopay.com.br/dqdqq3dsif?affh=jn2s0w4vt1',30:'https://go.tribopay.com.br/i8qvxtthwf?affh=2eysnuyhc1'};
 const DEFAULT_LINKS_ROOT = {1:'https://global.tribopay.com.br/qqfmley8qp',3:'https://global.tribopay.com.br/uumgyfiarg',7:'https://global.tribopay.com.br/u55svgvlpt',15:'https://global.tribopay.com.br/dqdqq3dsif',30:'https://global.tribopay.com.br/i8qvxtthwf'};
 
 let CURRENT_USER = SEC.loadSession(); 
@@ -644,19 +644,19 @@ window.onload = () => {
 };
 
 function showAuth() {
-  document.getElementById('authPage').classList.remove('hidden');
-  document.getElementById('mainApp').classList.remove('active');
-  document.getElementById('btnLogin').addEventListener('click', doLogin);
-  document.getElementById('btnReg').addEventListener('click', doRegister);
-  document.getElementById('lgPass').addEventListener('keydown', e=>{ if(e.key==='Enter') doLogin(); });
+  var _ap=document.getElementById('authPage'); if(_ap) _ap.classList.remove('hidden');
+  var _ma=document.getElementById('mainApp'); if(_ma) _ma.classList.remove('active');
+  var _bl=document.getElementById('btnLogin'); if(_bl) _bl.addEventListener('click', doLogin);
+  var _br=document.getElementById('btnReg'); if(_br) _br.addEventListener('click', doRegister);
+  var _lp=document.getElementById('lgPass'); if(_lp) _lp.addEventListener('keydown', e=>{ if(e.key==='Enter') doLogin(); });
 }
 
 function showApp() {
-  document.getElementById('authPage').classList.add('hidden');
-  document.getElementById('mainApp').classList.add('active');
-  document.getElementById('headerUser').textContent = CURRENT_USER.username;
-  document.getElementById('drawerUser').textContent = CURRENT_USER.name || CURRENT_USER.username;
-  document.getElementById('drawerEmail').textContent = CURRENT_USER.email || '';
+  var _ap2=document.getElementById('authPage'); if(_ap2) _ap2.classList.add('hidden');
+  var _ma2=document.getElementById('mainApp'); if(_ma2) _ma2.classList.add('active');
+  var _hu=document.getElementById('headerUser'); if(_hu) _hu.textContent = CURRENT_USER.username;
+  var _du=document.getElementById('drawerUser'); if(_du) _du.textContent = CURRENT_USER.name || CURRENT_USER.username;
+  var _de=document.getElementById('drawerEmail'); if(_de) _de.textContent = CURRENT_USER.email || '';
 
   
   const isAdmin = CURRENT_USER.isAdmin === true;
@@ -819,7 +819,7 @@ function openModal(product) {
   SELECTED_PLAN = null;
   document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
   _gel('btnPay').disabled = true;
-  _gel('modalProductName').textContent = product === 'mod' ? '🎯 PATO APKMOD' : '🔥 PATO APKROOT';
+  _gel('modalProductName').textContent = product === 'mod' ? '🎯 SOLO APKMOD' : '🔥 SOLO APKROOT';
   _gel('buyModal').classList.add('open');
 }
 function closeModal() { document.getElementById('buyModal').classList.remove('open'); SELECTED_PLAN = null; }
@@ -828,8 +828,8 @@ function closeModalOutside(e) { if(e.target===document.getElementById('buyModal'
 function selectPlan(days) {
   SELECTED_PLAN = days;
   document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
-  document.getElementById('plan'+days).classList.add('selected');
-  document.getElementById('btnPay').disabled = false;
+  var _pl=document.getElementById('plan'+days); if(_pl) _pl.classList.add('selected');
+  var _bp=document.getElementById('btnPay'); if(_bp) _bp.disabled = false;
 }
 
 function doPay() {
@@ -900,7 +900,7 @@ function saveLinks(type) {
 
 function loadUsersList() {
   const users = S.get('sx_usr', {});
-  const wrap = document.getElementById('usersTable');
+  const wrap = document.getElementById('usersTable'); if(!wrap) return;
   const list = Object.values(users);
   if (list.length === 0) {
     wrap.innerHTML = '<div style="color:var(--text3);font-size:0.85rem;text-align:center;padding:16px">Nenhum usuário cadastrado ainda.</div>';
@@ -952,15 +952,14 @@ function showToast(msg) {
     {label:'🎯 APKMOD — 30 dias',color:'#0077FF'},
     {label:'🎯 APKMOD — 7 dias',color:'#0099FF'},
     {label:'🎯 APKMOD — 15 dias',color:'#00AAFF'},
-    {label:'🔥 APKROOT — 30 dias',color:'#5865F2'},
-    {label:'🔥 APKROOT — 7 dias',color:'#5865F2'},
-    {label:'🔥 APKROOT — 15 dias',color:'#7289DA'},
+    {label:'🎯 APKMOD — 1 dia',color:'#0077FF'},
   ];
   var _times = ['agora mesmo','há 1 min','há 2 min','há 3 min','há 5 min'];
-  var _wrap = document.getElementById('sale-notif');
   function _rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
   function _emoji(){ var e=['😎','🔥','⚡','🎯','💪','🛡️','🚀']; return _rand(e); }
   function showSale(){
+    var _wrap = document.getElementById('sale-notif');
+    if(!_wrap) return;
     var n = _rand(_names);
     var p = _rand(_products);
     var t = _times[Math.floor(Math.random()*3)];
