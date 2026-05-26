@@ -215,6 +215,18 @@ header{background:rgba(10,5,0,0.97);border-bottom:1px solid var(--border);positi
 }
 #mainApp{display:flex!important;flex-direction:column;min-height:100vh}
 .admin-only-nav{display:none!important}
+
+    /* FAKE SALES NOTIFICATIONS */
+    #sale-notif{position:fixed;bottom:24px;left:16px;z-index:9998;display:flex;flex-direction:column;gap:8px;pointer-events:none;max-width:280px}
+    .sale-toast{background:linear-gradient(135deg,#050D1A,#081428);border:1px solid rgba(0,119,255,0.35);border-left:3px solid #0077FF;border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,0.5);animation:saleIn 0.4s ease;pointer-events:none;opacity:0;transform:translateX(-110%);transition:all 0.4s ease}
+    .sale-toast.show{opacity:1;transform:translateX(0)}
+    .sale-toast.hide{opacity:0;transform:translateX(-110%)}
+    .sale-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#0077FF,#00AAFF);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .sale-info{flex:1;min-width:0}
+    .sale-name{font-weight:700;font-size:0.82rem;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .sale-desc{font-size:0.72rem;color:var(--text3);margin-top:1px}
+    .sale-time{font-size:0.65rem;color:#0077FF;margin-top:3px;font-weight:600}
+    @keyframes saleIn{from{opacity:0;transform:translateX(-110%)}to{opacity:1;transform:translateX(0)}}
 </style>
 </head>
 <body>
@@ -270,12 +282,19 @@ header{background:rgba(10,5,0,0.97);border-bottom:1px solid var(--border);positi
       <div class="nav-item" onclick="showPage('apkroot')"><span class="nav-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 19.82L5.71 21l1-1.9C7 18.5 7.5 18 8 18h12c1.1 0 2-.9 2-2V8l-5 1z"/></svg></span> APKROOT</div>
       <div class="drawer-section">ℹ️ Informações</div>
       <div class="nav-item" onclick="showPage('info')"><span class="nav-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></span> MAIS INFORMAÇÕES</div>
+      <a href="https://discord.gg/HYmWhTYepq" target="_blank" rel="noopener" class="nav-item" style="color:#5865F2">
+        <span class="nav-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.055 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg></span>
+        DISCORD <span class="nav-badge" style="background:#5865F2">ENTRAR</span>
+      </a>
       <div class="nav-item" onclick="showPage('social')"><span class="nav-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg></span> REDES SOCIAIS</div>
       <div class="drawer-section admin-only-nav hidden always-hidden"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="vertical-align:middle;margin-right:6px"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg> Admin</div>
       <div class="nav-item admin-only-nav hidden always-hidden" onclick="showPage('admin')"><span class="nav-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg></span> PAINEL ADMIN</div>
     </nav>
-    <div class="drawer-footer">
-      
+    <div class="drawer-footer" style="display:flex;flex-direction:column;gap:10px">
+      <a href="https://discord.gg/HYmWhTYepq" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:13px;background:linear-gradient(135deg,#5865F2,#4752C4);border:none;border-radius:10px;color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:0.95rem;letter-spacing:2px;text-decoration:none;box-shadow:0 3px 16px rgba(88,101,242,0.4)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.03.056a19.9 19.9 0 0 0 5.993 3.03.077.077 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+        DISCORD
+      </a>
     </div>
   </div>
 
@@ -921,6 +940,50 @@ function showToast(msg) {
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2800);
 }
+
+// ── FAKE SALES NOTIFICATIONS ────────────────────────────
+(function(){
+  var _names = ['Lucas M.','Gabriel S.','Matheus R.','Pedro H.','João V.',
+    'Felipe A.','Rafael C.','Diego L.','Bruno T.','Carlos E.',
+    'Thiago N.','Anderson P.','Rodrigo K.','Vitor H.','Eduardo M.',
+    'Gustavo F.','Leonardo B.','Henrique S.','Daniel R.','Igor W.'];
+  var _products = [
+    {label:'🎯 APKMOD — 30 dias',color:'#0077FF'},
+    {label:'🎯 APKMOD — 7 dias',color:'#0099FF'},
+    {label:'🎯 APKMOD — 15 dias',color:'#00AAFF'},
+    {label:'🔥 APKROOT — 30 dias',color:'#5865F2'},
+    {label:'🔥 APKROOT — 7 dias',color:'#5865F2'},
+    {label:'🔥 APKROOT — 15 dias',color:'#7289DA'},
+  ];
+  var _times = ['agora mesmo','há 1 min','há 2 min','há 3 min','há 5 min'];
+  var _wrap = document.getElementById('sale-notif');
+  function _rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+  function _emoji(){ var e=['😎','🔥','⚡','🎯','💪','🛡️','🚀']; return _rand(e); }
+  function showSale(){
+    var n = _rand(_names);
+    var p = _rand(_products);
+    var t = _times[Math.floor(Math.random()*3)];
+    var div = document.createElement('div');
+    div.className = 'sale-toast';
+    div.innerHTML = '<div class="sale-avatar">'+_emoji()+'</div>'
+      +'<div class="sale-info">'
+        +'<div class="sale-name">'+n+' comprou</div>'
+        +'<div class="sale-desc">'+p.label+'</div>'
+        +'<div class="sale-time">✅ '+t+'</div>'
+      +'</div>';
+    _wrap.appendChild(div);
+    setTimeout(function(){ div.classList.add('show'); }, 100);
+    setTimeout(function(){ div.classList.remove('show'); div.classList.add('hide');
+      setTimeout(function(){ if(div.parentNode) div.parentNode.removeChild(div); }, 500);
+    }, 4000);
+  }
+  // Primeira aparece após 5s, depois intervalo aleatório 15-40s
+  setTimeout(function(){
+    showSale();
+    setInterval(function(){ showSale(); }, 15000 + Math.random()*25000);
+  }, 5000);
+})();
+
 </script>
 
 <!-- ghost elements for JS compat -->
@@ -939,5 +1002,6 @@ function showToast(msg) {
 <div id="rgUser" style="display:none"></div>
 <div id="tabLogin" style="display:none"></div>
 <div id="tabReg" style="display:none"></div>
+<div id="sale-notif"></div>
 </body>
 </html>
